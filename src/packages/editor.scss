@@ -1,0 +1,140 @@
+@import url(../iconfont/iconfont.css);
+
+.editor {
+  width: 100%;
+  height: 100%;
+  background: black;
+
+  &-left {
+    position: absolute;
+    background: blueviolet;
+    width: 270px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    &-item {
+      position: relative;
+      background: #fff;
+      width: 250px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      cursor: move;
+      user-select: none;
+      min-height: 100px;
+
+      > span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgb(96, 205, 224);
+        color: #fff;
+        padding: 4px;
+      }
+
+      // 添加一个这招，禁止组件原来的事件交互
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &-right {
+    position: absolute;
+    width: 270px;
+    background: red;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  &-top {
+    position: absolute;
+    right: 280px;
+    left: 280px;
+    height: 80px;
+    display: flex;
+    background: blue;
+    // 内容居中
+    justify-content: center;
+    align-items: center;
+
+    &-button {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      user-select: none;
+      cursor: pointer;
+      color: #fff;
+      // 当前按钮的下一个按钮自动添加间距
+      & + & {
+        margin-left: 3px;
+      }
+    }
+  }
+
+  &-container {
+    padding: 80px 270px 0;
+    height: 100%;
+    box-sizing: border-box;
+
+    &-canvas {
+      overflow: scroll;
+      height: 100%;
+
+      &__content {
+        margin: 20px auto;
+        background: yellow;
+        position: relative;
+      }
+    }
+  }
+}
+
+// 禁止操作
+.editor-block {
+  position: absolute;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// 预览允许操作
+.editor-block-preview {
+  position: absolute;
+  &::after {
+    display: none;
+  }
+}
+
+// 拖拽时的辅助线
+.line-x {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-left: 1px dashed red;
+}
+.line-y {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed red;
+}

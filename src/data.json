@@ -1,0 +1,21 @@
+{
+    "container": {
+        "desc": "画板",
+        "width": 550,
+        "height": 550
+    },
+    "blocks": [
+        {
+            "key": "text",
+            "top": 100,
+            "left": 100,
+            "zIndex": 1
+        },
+        {
+            "key": "input",
+            "top": 100,
+            "left": 150,
+            "zIndex": 1
+        }
+    ]
+}

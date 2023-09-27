@@ -1,0 +1,20 @@
+.editor-block {
+    position: absolute;
+
+    // 添加一个这招，禁止组件原来的事件交互
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    // 选中样式
+    &-focus {
+        &::after {
+            border: 1px dashed red; // 红色虚线边框
+        }
+    }
+}
